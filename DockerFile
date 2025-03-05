@@ -1,0 +1,8 @@
+FROM docker:dind  
+
+# Instalamos los paquetes necesarios para ejecutar los lenguajes soportados
+RUN apk add --no-cache git bash python3 openjdk17 g++ nodejs ruby
+RUN git clone https://github.com/ElviFlo/Docker-execution_programs /app  
+WORKDIR /app  
+RUN chmod +x execution.sh  
+CMD ["bash", "./execution.sh"]
