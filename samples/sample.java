@@ -1,3 +1,5 @@
+package samples;
+
 public class sample {
     public static void main(String[] args) {
         int suma = 0;
