@@ -46,8 +46,11 @@ esac
 
 # 4. Ejecutar el código en el contenedor
 echo "Ejecutando $filename en un contenedor Docker con la imagen $image..."
+start_time=$(date +%s%3N)
 output=$(docker run --rm -v "$(pwd):/app" -w /app "$image" bash -c "$cmd" 2>&1)  
+end_time=$(date +%s%3N)
 
 # 5. Mostrar resultados
 echo "Salida del programa:"
 echo "$output"
+echo "Tiempo de ejecución: $((end_time - start_time)) ms"
